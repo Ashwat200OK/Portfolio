@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { changeTheme } from '../Slices/Theme'
+import { useDispatch, useSelector } from "react-redux";
 
 function HoverLink({ text, screenTheme }) {
     const [hovered, setHovered] = useState(false);
@@ -14,7 +16,7 @@ function HoverLink({ text, screenTheme }) {
 
             {/* Default text */}
             <motion.span
-                className={`absolute left-0 top-0 ${screenTheme ? "text-[#ffffff]" : "text-[#010409]"
+                className={`absolute left-0 top-0 ${screenTheme ? "text-[#ffffff]" : "text-[#676768]"
                     } text-[13px] poppins-semibold`}
                 animate={{ y: hovered ? "-100%" : "0%" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -35,15 +37,17 @@ function HoverLink({ text, screenTheme }) {
 }
 
 export default function Navbar() {
-    const [screenTheme, setScreenTheme] = useState(false);
+    // const [screenTheme, setScreenTheme] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const dispatch = useDispatch()
+    const screenTheme = useSelector((state) => state.screenTheme);
 
-    const changeUIColor = () => setScreenTheme((prev) => !prev);
+    const changeUIColor = () => dispatch(changeTheme());
     const toggleMenu = () => setMenuOpen((prev) => !prev);
 
     return (
         <div
-            className={`w-full px-5 md:px-20 lg:px-40 h-16 flex items-center justify-between ${screenTheme ? "bg-[#010409]" : "bg-[#ffffff]"
+            className={`w-full px-5 md:px-20 lg:px-30 h-16 flex items-center justify-between ${screenTheme ? "bg-[#010409]" : "bg-[#ffffff]"
                 }`}
         >
             {/* Left: Logo */}
@@ -74,6 +78,9 @@ export default function Navbar() {
             <ul className="hidden md:flex gap-5 items-center">
                 <li>
                     <HoverLink text="About" screenTheme={screenTheme} />
+                </li>
+                <li>
+                    <HoverLink text="Skills" screenTheme={screenTheme} />
                 </li>
                 <li>
                     <HoverLink text="Project" screenTheme={screenTheme} />
