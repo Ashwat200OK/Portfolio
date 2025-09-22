@@ -52,7 +52,8 @@ export default function Navbar() {
         >
             {/* Left: Logo */}
             <button className="flex items-center">
-                <svg
+                <img src="./logo.png" alt="Logo" className="w-23" />
+                {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -71,16 +72,20 @@ export default function Navbar() {
                         }`}
                 >
                     Ash<span className="text-[#fccf05]">Stack</span>
-                </h1>
+                </h1> */}
             </button>
 
             {/* Desktop Nav */}
             <ul className="hidden md:flex gap-5 items-center">
                 <li>
-                    <HoverLink text="About" screenTheme={screenTheme} />
+                    <a href="#about">
+                        <HoverLink text="About" screenTheme={screenTheme} />
+                    </a>
                 </li>
                 <li>
-                    <HoverLink text="Skills" screenTheme={screenTheme} />
+                    <a href="#skills">
+                        <HoverLink text="Skills" screenTheme={screenTheme} />
+                    </a>
                 </li>
                 <li>
                     <HoverLink text="Project" screenTheme={screenTheme} />

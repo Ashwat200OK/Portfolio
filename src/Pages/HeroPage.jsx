@@ -11,7 +11,7 @@ export default function HeroPage() {
     }
     const screenTheme = useSelector((state) => state.screenTheme);
     return (
-        <div className={`w-full md:h-160 flex flex-col md:flex-row px-3 lg:px-20 py-10  ${screenTheme ? "bg-[#010409]" : "bg-[#ffffff]"}`}>
+        <div id='about' className={`w-full md:h-160 flex flex-col md:flex-row px-3 lg:px-20 py-10  ${screenTheme ? "bg-[#010409]" : "bg-[#ffffff]"}`}>
             {/* Left Section */}
             <div className='w-full md:w-3/5 flex flex-col justify-around py-16 items-start mb-10 md:mb-0'>
                 <h6 className={`poppins-semibold text-sm md:text-base ${screenTheme ? "text-[#ffffff]" : "text-[#010409]"}`}>

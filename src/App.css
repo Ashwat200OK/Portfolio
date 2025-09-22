@@ -11,6 +11,10 @@ h6 {
     border: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
     --TEXT_COLOR: rgba(0, 0, 0, .5)
 }
@@ -141,7 +145,8 @@ h6 {
 }
 
 .dynamic-text {
-    height: 3rem; /* responsive height ~ 48px for mobile, adjust as needed */
+    height: 3rem;
+    /* responsive height ~ 48px for mobile, adjust as needed */
     line-height: 3rem;
     overflow: hidden;
     position: relative;
@@ -156,7 +161,8 @@ h6 {
 /* Adjust the slide based on li height */
 @keyframes slide {
     100% {
-        top: -9rem; /* 3 li's * 3rem = 9rem */
+        top: -9rem;
+        /* 3 li's * 3rem = 9rem */
     }
 }
 
@@ -166,19 +172,24 @@ h6 {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #fff; /* light */
+    background-color: #fff;
+    /* light */
     border-left: 2px solid #fccf05;
     animation: typing 3s steps(22) infinite;
 }
 
 .dynamic-text.dark li::after {
-    background-color: #010409; /* dark */
+    background-color: #010409;
+    /* dark */
 }
 
 @keyframes typing {
-    40%, 60% {
+
+    40%,
+    60% {
         left: calc(100% + 10px);
     }
+
     100% {
         left: 0;
     }
@@ -187,40 +198,69 @@ h6 {
 /* Responsive tweaks */
 @media (max-width: 768px) {
     .dynamic-text {
-        height: 2.5rem; /* smaller for mobile */
+        height: 2.5rem;
+        /* smaller for mobile */
         line-height: 2.5rem;
     }
 
     @keyframes slide {
         100% {
-            top: -7.5rem; /* 3 li's * 2.5rem */
+            top: -7.5rem;
+            /* 3 li's * 2.5rem */
         }
     }
 }
 
 
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-.animate-marquee {
-    overflow: hidden;
-    
-}
-
-@keyframes slider {
-    from {
-        transform: translateX(0);
+    0% {
+        transform: translateX(100%);
     }
-    to {
+
+    100% {
         transform: translateX(-100%);
     }
 }
 
-.skill-icons{
-    width: 100px;
-    margin: 0px 50px 0px 50px;
-    animation: 1s slider infinite linear;
+.slide {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
 }
 
+.animate-marquee {
+    display: flex;
+    animation: slider 15s linear infinite;
+}
+
+.animate-marque-backend {
+    display: flex;
+    animation: slider-backend 15s linear infinite;
+}
+
+@keyframes slider {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slider-backend {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+.skill-icons {
+    width: 60px;
+    margin: 0 50px;
+}
